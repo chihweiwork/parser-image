@@ -8,6 +8,8 @@ make install
 ```
 
 ## how to use
-```
+``` bash
 make start #start parser image api server
 ```
+## example
+check out example folder

@@ -1,10 +1,11 @@
 WORKING_DIR=$(shell pwd)
 PROJECT_NAME=$(shell basename $(WORKING_DIR))
 AUTHOR=$(shell whoami)
-PATHON_VERSION=$(shell python -V | cut -d" " -f2)
+PYTHON_VERSION=$(shell python -V | cut -d" " -f2)
+VENV_PYTHON=$(shell poetry show -v 2>&1 | grep virtualenvs | cut -d" " -f3)
 
 init: ## init python virtual env by poetry
-	poetry init --name=$(PROJECT_NAME) --description="" --author=$(AUTHOR) --python=$(PATHON_VERSION) -q
+	poetry init --name=$(PROJECT_NAME) --description="" --author=$(AUTHOR) --python=$(PYTHON_VERSION) -q
 install: ## install python package from pyproject.toml
 	poetry install
 
@@ -16,8 +17,10 @@ clean-toml: ## remove .toml
 clean-env: ## clean env
 	poetry env remove --all
 
-rebuid: clean-env install ## rebuild poetry
+start: ## start api server
+	$(VENV_PYTHON)/bin/python ./code/app.py
 
+rebuid: clean-env install ## rebuild poetry
 clean: 
 
 help: ## print help

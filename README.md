@@ -7,4 +7,7 @@ This is a project, help you to transform image to string
 make install
 ```
 
-
+## how to use
+```
+make start #start parser image api server
+```

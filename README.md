@@ -37,3 +37,7 @@ if __name__ == "__main__":
     # print result
     print(resp)
 ``` 
+output
+```json
+{'message': 'Successfully uploaded file', 'parser': 'Note: This error originates from the build backend, and is likely not a problem with poetry but with tesseract-ocr (@.@.1) not supporting PEP 5\n17 builds. You can verify this by running \'pip wheel --use-pep517 "tesseract-ocr (==0.@.1)"\'.\n\x0c'}
+```

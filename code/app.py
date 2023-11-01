@@ -13,6 +13,9 @@ app = FastAPI()
 
 @app.post("/base64ImageParser")
 def base64ImageParser(file: UploadFile = File(...)) -> Dict[str, str]:
+    """
+    Get data from post request and parser image and get string in image.
+    """
     try:
         result = image.parser_in_memory(file.file.read())
         return {"message": f"Successfully uploaded {file.filename}", "parser": result}

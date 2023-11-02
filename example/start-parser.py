@@ -22,10 +22,11 @@ def main(path: str, url: str) -> None:
 
     img_string = read_image(path)
     data = {
-        "file": img_string
+        "filename": path,
+        "body": img_string.decode('utf-8')
     }
 
-    resp = requests.post(url=url, files=data)
+    resp = requests.post(url=url, json=data)
     print(resp.json())
 
 if __name__ == "__main__":

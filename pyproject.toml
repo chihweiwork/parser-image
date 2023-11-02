@@ -15,7 +15,7 @@ click = "^8.1.7"
 fastapi = "^0.104.0"
 python-multipart = "^0.0.6"
 uvicorn = "^0.23.2"
-gunicorn = "*"
+gunicorn = "21.2.0"
 requests = "^2.31.0"
 
 

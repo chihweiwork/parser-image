@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import traceback
-import image
+from code import image
 from typing import Dict
 from pydantic import BaseModel
 

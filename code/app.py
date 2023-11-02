@@ -2,19 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import traceback
-import image
+from code import image
 from typing import Dict
 from pydantic import BaseModel
 
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://localhost:8080",
-    "http://localhost:5000",
-    "http://localhost:80",
-    "http://localhost"
+    "*"
 ]
 
 app.add_middleware(

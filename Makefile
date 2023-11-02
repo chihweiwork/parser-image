@@ -12,6 +12,12 @@ install: ## install python package from pyproject.toml
 install-requestments: ## install package from requestments
 	cat ./requestments.txt | xargx poetry add 
 
+build-image: ## build docker image
+	docker build -t image2string:latest .
+
+build-project: ## build this project
+	init install
+
 clean-toml: ## remove .toml
 	rm -f *.toml
 clean-env: ## clean env
@@ -19,9 +25,6 @@ clean-env: ## clean env
 
 start: ## start api server
 	$(VENV_PYTHON)/bin/python ./code/app.py
-
-rebuid: clean-env install ## rebuild poetry
-clean: 
 
 help: ## print help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m  %-30s\033[0m %s\n", $$1, $$2}'

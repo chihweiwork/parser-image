@@ -1,6 +1,10 @@
-from python:3.10
+FROM python:3.10-bookworm
 
 WORKDIR /code
+
+RUN apt update
+RUN apt install tesseract-ocr -y
+
 
 COPY pyproject.toml poetry.lock /code/
 
